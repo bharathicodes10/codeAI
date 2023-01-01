@@ -14,7 +14,7 @@ body {
 #app {
   width: 100vw;
   height: 100vh;
-  background: #040404;
+  background-image: linear-gradient(#000428 , #004e92);
   color:#40414F;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ body {
 }
 
 .ai {
-  background: #241df9;
+  background-image:linear-gradient(#36d1dc , #5b86e5);
 }
 
 .chat {
