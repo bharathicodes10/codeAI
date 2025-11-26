@@ -5,20 +5,22 @@ import OpenAI from 'openai'
 
 dotenv.config()
 
-// Make sure OPENKEY is set in your .env (and on Render)
-console.log('OPENKEY present?', !!process.env.OPENKEY)
+const app = express()
+app.use(cors())
+app.use(express.json())
 
 const openai = new OpenAI({
   apiKey: process.env.OPENKEY,
 })
 
-const app = express()
-app.use(cors())
-app.use(express.json())
+// 👇 add this
+app.get('/ping', (req, res) => {
+  res.status(200).send('pong');
+});
 
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).send({
-    message: 'Hello from!',
+    message: 'Hello from CodeAI backend!',
   })
 })
 
@@ -63,6 +65,11 @@ app.post('/', async (req, res) => {
   }
 })
 
-app.listen(5000, () =>
-  console.log('AI server started on http://localhost:5000'),
-)
+// IMPORTANT: PORT from env
+const PORT = process.env.PORT || 5000
+app.listen(PORT, () => {
+  console.log(`AI server started on port ${PORT}`)
+})
+
+
+
