@@ -1,4 +1,4 @@
-# --- Environment files (VERY IMPORTANT) ---
+# --- Environment files (VERY IMPORTANT) must ---
 .env
 *.env
 .env.local
